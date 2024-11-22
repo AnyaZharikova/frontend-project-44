@@ -3,6 +3,7 @@
 import readlineSync from 'readline-sync';
 import _ from 'lodash'
 
+//функция приветствия
 const whatIsYourName = () => {
     console.log('Welcome to the Brain Games!');
     const name = readlineSync.question('May I have your name? ');
@@ -10,35 +11,34 @@ const whatIsYourName = () => {
     return name;
 };
 
-const isEven = (num) => num % 2 === 0; // проверка на четность, функция вернет true или false
-
-const yourAnswer = () => {
-    
+//задаем вопрос
+const getQuestion = () => {
     const num = _.random(0, 99);
     console.log('Question: ' + num);
-    const userAnswer = readlineSync.question('Your answer: ');
-
-    const expectedAnswer = isEven(num) ? 'yes' : 'no'; //ожидаемый ответ примет значение 'yes', если число четное, 'no', если нечетное
-    
-    //ответ пользователя должен быть равен ожидаемому ответу
-    if (expectedAnswer === userAnswer) {
-        const isCorrect = [true, userAnswer]
-        return isCorrect;
-    } else {
-        const isCorrect = [false, userAnswer, expectedAnswer]
-        return isCorrect;
-    }
+    return num;
 };
 
+//проверяем на четность
+const isEven = (num) => num % 2 === 0;
+
+//проверяем ответ
+const chekAnswer = (userAnswer, num) => {
+    const expectedAnswer = isEven(num) ? 'yes' : 'no';
+    return [expectedAnswer === userAnswer, expectedAnswer]
+};
+
+//играем
 const letsPlay = () => {
     const name = whatIsYourName();
-    const maxRound = 3; //раунды 0, 1, 2
+    const maxRound = 3;
     let correctAnswer = 0;
 
     console.log('Answer "yes" if the number is even, otherwise answer "no".');
-    
+
     while (correctAnswer < maxRound) {
-        const [isCorrect, userAnswer, expectedAnswer] = yourAnswer();
+        const num = getQuestion();
+        const userAnswer = readlineSync.question('Your answer: ');
+        const [isCorrect, expectedAnswer] = chekAnswer(userAnswer, num);
 
         if (isCorrect) {
             correctAnswer += 1;
