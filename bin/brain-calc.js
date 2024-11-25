@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import _ from 'lodash';
 import { whatIsYourName, getUserAnswer, checkAnswer } from '../src/index.js';
 
