@@ -9,10 +9,15 @@ const whatIsYourName = () => {
     return name;
 };
 
+const getNum = () => {
+    const num = _.random(1, 50);
+    return num;
+};
+
 //получение ответа от пользователя
 const getUserAnswer = () => readlineSync.question('Your answer: ');
 
 //проверка ответа пользователя
 const checkAnswer = (userAnswer, expectedAnswer) => expectedAnswer === userAnswer;
 
-export { whatIsYourName, getUserAnswer, checkAnswer };
+export { whatIsYourName, getNum, getUserAnswer, checkAnswer };
