@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 import _ from 'lodash';
-import { whatIsYourName, getUserAnswer, checkAnswer } from '../src/index.js';
+import { whatIsYourName, getNum, getUserAnswer, checkAnswer } from '../src/index.js';
 
 const randomNumbers = () => {
-    const num1 = _.random(0, 50);
-    const num2 = _.random(0, 50);
+    const num1 = getNum();
+    const num2 = getNum();
 
     console.log(`Question: ${num1} ${num2}`);
     
@@ -25,13 +25,6 @@ const getGcd = (num1, num2) => {
     const expectedAnswer = maxNum;
     return expectedAnswer;
 };
-
-//export const gcdGame = () => {
-//    const [num1, num2] = randomNumbers();
-//    const [expectedAnswer] = getGcd(num1, num2);
-
-//    return [expectedAnswer];
-//};
 
 const brainGcd = () => {
     const maxRound = 3;

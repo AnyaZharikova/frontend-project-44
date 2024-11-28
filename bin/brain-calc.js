@@ -1,22 +1,21 @@
 #!/usr/bin/env node
 
 import _ from 'lodash';
-import { whatIsYourName, getUserAnswer, checkAnswer } from '../src/index.js';
+import { whatIsYourName, getNum, getUserAnswer, checkAnswer } from '../src/index.js';
 
-//задаем вопрос
 const randomExpression = () => {
-    const num1 = _.random(0, 20);
-    const num2 = _.random(0, 20);
+    const num1 = getNum();
+    const num2 = getNum();
     const operators = ['+', '-', '*'];
     const randomOperator = _.sample(operators);
-    //const question = `${num1} ${randomOperator} ${num2}`;
+
     console.log(`Question: ${num1} ${randomOperator} ${num2}`);
+    
     const expression = [num1, num2, randomOperator];
 
     return expression;
 };
 
-//ожидаемый ответ
 const calculateResult = (num1, num2, randomOperator) => {
     const question = `${num1} ${randomOperator} ${num2}`;
     let expectedAnswer;
@@ -36,16 +35,6 @@ const calculateResult = (num1, num2, randomOperator) => {
 
     return [question, expectedAnswer];
 };
-
-//играем
-
-//export const calculatingGame = () => {
-//    const [num1, num2, randomOperator] = randomExpression();
-//    const [question, expectedAnswer] = calculateResult(num1, num2, randomOperator);
-
-//    return [question, expectedAnswer];
-//};
-
 
 const brainCalc = () => {
     const maxRound = 3;

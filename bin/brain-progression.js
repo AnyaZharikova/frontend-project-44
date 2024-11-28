@@ -30,7 +30,7 @@ const hideNum = () => {
 
     console.log(`Question: ${hiddenProgression.join(' ')}`);
 
-    return [expectedAnswer, hiddenProgression.join(' ')];
+    return expectedAnswer;
 };
 
 const brainProgression = () => {
@@ -42,7 +42,7 @@ const brainProgression = () => {
     console.log('What number is missing in the progression?');
 
     while (correctAnswer < maxRound) {
-        const [expectedAnswer, hiddenProgression] = hideNum();
+        const expectedAnswer = hideNum();
         const userAnswer = Number(getUserAnswer());
         const isCorrect = checkAnswer(userAnswer, expectedAnswer);
 
