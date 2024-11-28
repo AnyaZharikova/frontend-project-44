@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-import readlineSync from 'readline-sync';
-import _ from 'lodash'
 import { whatIsYourName, getNum, getUserAnswer, checkAnswer } from '../src/index.js';
 
 const getExpectedAnswer = (num) => {

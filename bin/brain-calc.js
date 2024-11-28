@@ -9,7 +9,7 @@ const randomExpression = () => {
     const operators = ['+', '-', '*'];
     const randomOperator = _.sample(operators);
 
-    console.log(`Question: ${num1} ${randomOperator} ${num2}`);
+    //console.log(`Question: ${num1} ${randomOperator} ${num2}`);
     
     const expression = [num1, num2, randomOperator];
 
@@ -17,7 +17,6 @@ const randomExpression = () => {
 };
 
 const calculateResult = (num1, num2, randomOperator) => {
-    const question = `${num1} ${randomOperator} ${num2}`;
     let expectedAnswer;
     switch (randomOperator) {
         case '+':
@@ -33,7 +32,7 @@ const calculateResult = (num1, num2, randomOperator) => {
             expectedAnswer = null;
     }
 
-    return [question, expectedAnswer];
+    return expectedAnswer;
 };
 
 const brainCalc = () => {
@@ -46,7 +45,10 @@ const brainCalc = () => {
 
     while (correctAnswer < maxRound) {
         const [num1, num2, randomOperator] = randomExpression();
-        const [question, expectedAnswer] = calculateResult(num1, num2, randomOperator);
+
+        console.log(`Question: ${num1} ${randomOperator} ${num2}`);
+
+        const expectedAnswer = calculateResult(num1, num2, randomOperator);
         const userAnswer = Number(getUserAnswer());
         const isCorrect = checkAnswer(userAnswer, expectedAnswer);
 
