@@ -2,30 +2,14 @@
 
 import readlineSync from 'readline-sync';
 import _ from 'lodash'
-import { whatIsYourName, getUserAnswer, checkAnswer } from '../src/index.js';
+import { whatIsYourName, getNum, getUserAnswer, checkAnswer } from '../src/index.js';
 
-//задаем вопрос
-const getQuestion = () => {
-    const num = _.random(0, 99);
-    console.log('Question: ' + num);
-    return num;
-};
-    
-//проверяем ответ
 const getExpectedAnswer = (num) => {
     const isEven = (num) => num % 2 === 0;
     return isEven(num) ? 'yes' : 'no';
 };
 
-//играем
-//export const evenGame = () => {
-//    const num = getQuestion();
-//   const expectedAnswer = getExpectedAnswer(num);
-
-//    return [num, expectedAnswer];
-//};
-
-const letsPlay = () => {
+const brainEven = () => {
     const name = whatIsYourName();
     const maxRound = 3;
     let correctAnswer = 0;
@@ -33,7 +17,9 @@ const letsPlay = () => {
     console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
     while (correctAnswer < maxRound) {
-        const num = getQuestion();
+        const num = getNum();
+        console.log(`Question: ${num}`);
+
         const expectedAnswer = getExpectedAnswer(num);
         const userAnswer = getUserAnswer();
         const isCorrect = checkAnswer(userAnswer, expectedAnswer);
@@ -51,4 +37,4 @@ const letsPlay = () => {
     console.log(`Congratulation, ${name}!`);
 };
 
-letsPlay();
+brainEven();
