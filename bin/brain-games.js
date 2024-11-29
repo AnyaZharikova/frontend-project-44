@@ -2,5 +2,6 @@
 
 console.log('Welcome to the Brain Games!');
 
-import whatIsYourName from '../src/cli.js'
+import whatIsYourName from '../src/cli.js';
+
 whatIsYourName();
