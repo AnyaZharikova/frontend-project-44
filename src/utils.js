@@ -1,7 +1,6 @@
 let seed = Date.now();
 
 const getNum = (min = 1, max = 50) => {
-
   // LCG parametrs from RANDU
   const modulus = 2 ** 31;
   const multiplier = 1103515245;
@@ -15,7 +14,7 @@ const getNum = (min = 1, max = 50) => {
 };
 
 const getOperator = (operators) => {
-  //Parametrs from RANDU
+  // Parametrs from RANDU
   const modulus = 2 ** 31;
   const multiplier = 1103515245;
   const increment = 12345;
