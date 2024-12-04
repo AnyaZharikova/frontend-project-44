@@ -1,6 +1,5 @@
-#!/usr/bin/env node
-
-import { getNum, runGame } from '../src/index.js';
+import runGame from '../src/index.js';
+import { getNum } from '../src/utils.js';
 
 const isPrime = (num) => {
   if (num < 2) {
@@ -30,4 +29,4 @@ const brainPrime = () => {
   runGame(description, getRoundData);
 };
 
-brainPrime();
+export default brainPrime;

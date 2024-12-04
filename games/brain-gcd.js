@@ -1,6 +1,5 @@
-#!/usr/bin/env node
-
-import { getNum, runGame } from '../src/index.js';
+import runGame from '../src/index.js';
+import { getNum } from '../src/utils.js';
 
 const randomNumbers = () => {
   const num1 = getNum();
@@ -36,4 +35,4 @@ const brainGcd = () => {
   runGame(description, getRoundData);
 };
 
-brainGcd();
+export default brainGcd;

@@ -1,12 +1,10 @@
-#!/usr/bin/env node
-
-import _ from 'lodash';
-import { runGame } from '../src/index.js';
+import runGame from '../src/index.js';
+import { getNum } from '../src/utils.js';
 
 const progression = () => {
-  const step = _.random(1, 9);
-  const firstNum = _.random(0, 20);
-  const lengthOfProgression = _.random(5, 10);
+  const step = getNum(1, 9);
+  const firstNum = getNum(0, 20);
+  const lengthOfProgression = getNum(5, 10);
 
   let nextNum = firstNum;
   const arithmeticProgression = [firstNum];
@@ -21,7 +19,7 @@ const progression = () => {
 
 const hideNum = () => {
   const arithmeticProgression = progression();
-  const randomIndex = _.random(0, arithmeticProgression.length - 1);
+  const randomIndex = getNum(0, arithmeticProgression.length - 1);
 
   const expectedAnswer = arithmeticProgression[randomIndex];
 
@@ -43,4 +41,4 @@ const brainProgression = () => {
   runGame(description, getRoundData);
 };
 
-brainProgression();
+export default brainProgression;

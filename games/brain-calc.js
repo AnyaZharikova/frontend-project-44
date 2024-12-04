@@ -1,13 +1,11 @@
-#!/usr/bin/env node
-
-import _ from 'lodash';
-import { getNum, runGame } from '../src/index.js';
+import runGame from '../src/index.js';
+import { getNum, getOperator } from '../src/utils.js';
 
 const randomExpression = () => {
   const num1 = getNum();
   const num2 = getNum();
   const operators = ['+', '-', '*'];
-  const randomOperator = _.sample(operators);
+  const randomOperator = getOperator(operators);
 
   const expression = [num1, num2, randomOperator];
 
@@ -46,4 +44,4 @@ const brainCalc = () => {
   runGame(description, getRoundData);
 };
 
-brainCalc();
+export default brainCalc;

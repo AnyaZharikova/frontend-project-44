@@ -1,6 +1,5 @@
-#!/usr/bin/env node
-
-import { getNum, runGame } from '../src/index.js';
+import runGame from '../src/index.js';
+import { getNum } from '../src/utils.js';
 
 const isEven = (num) => num % 2 === 0;
 
@@ -18,4 +17,4 @@ const brainEven = () => {
   runGame(description, getRoundData);
 };
 
-brainEven();
+export default brainEven;
