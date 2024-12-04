@@ -1,16 +1,10 @@
 import readlineSync from 'readline-sync';
-import _ from 'lodash';
 
 const whatIsYourName = () => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
   return name;
-};
-
-const getNum = () => {
-  const num = _.random(1, 50);
-  return num;
 };
 
 const getUserAnswer = () => readlineSync.question('Your answer: ');
@@ -45,4 +39,4 @@ const runGame = (description, getRoundData) => {
   console.log(`Congratulations, ${name}!`);
 };
 
-export { getNum, runGame };
+export default runGame;
