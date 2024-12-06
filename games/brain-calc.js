@@ -1,5 +1,11 @@
 import runGame from '../src/index.js';
-import { getNum, getOperator } from '../src/utils.js';
+import { getNum } from '../src/utils.js';
+
+const getOperator = (operators) => {
+  const randomIndex = Math.floor(Math.random() * operators.length);
+
+  return operators[randomIndex];
+};
 
 const randomExpression = () => {
   const num1 = getNum();
@@ -25,13 +31,13 @@ const calculateResult = (num1, num2, randomOperator) => {
       expectedAnswer = num1 * num2;
       break;
     default:
-      expectedAnswer = null;
+      throw new Error(`Unknown operator: '${randomOperator}'! Supported operators are '+', '-', '*'.`);
   }
 
   return expectedAnswer;
 };
 
-const brainCalc = () => {
+const runBrainCalc = () => {
   const description = 'What is the result of the expression?';
 
   const getRoundData = () => {
@@ -44,4 +50,4 @@ const brainCalc = () => {
   runGame(description, getRoundData);
 };
 
-export default brainCalc;
+export default runBrainCalc;
