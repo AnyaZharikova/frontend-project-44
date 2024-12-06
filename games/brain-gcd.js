@@ -22,7 +22,7 @@ const getGcd = (num1, num2) => {
   return expectedAnswer;
 };
 
-const brainGcd = () => {
+const runBrainGcd = () => {
   const description = 'Find the greatest common divisor of given numbers.';
 
   const getRoundData = () => {
@@ -35,4 +35,4 @@ const brainGcd = () => {
   runGame(description, getRoundData);
 };
 
-export default brainGcd;
+export default runBrainGcd;

@@ -1,7 +1,7 @@
 import runGame from '../src/index.js';
 import { getNum } from '../src/utils.js';
 
-const progression = () => {
+const getProgression = () => {
   const step = getNum(1, 9);
   const firstNum = getNum(0, 20);
   const lengthOfProgression = getNum(5, 10);
@@ -18,7 +18,7 @@ const progression = () => {
 };
 
 const hideNum = () => {
-  const arithmeticProgression = progression();
+  const arithmeticProgression = getProgression();
   const randomIndex = getNum(0, arithmeticProgression.length - 1);
 
   const expectedAnswer = arithmeticProgression[randomIndex];
@@ -30,7 +30,7 @@ const hideNum = () => {
   return [question, expectedAnswer];
 };
 
-const brainProgression = () => {
+const runBrainProgression = () => {
   const description = 'What number is missing in the progression?';
 
   const getRoundData = () => {
@@ -41,4 +41,4 @@ const brainProgression = () => {
   runGame(description, getRoundData);
 };
 
-export default brainProgression;
+export default runBrainProgression;
