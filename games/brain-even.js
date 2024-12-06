@@ -3,18 +3,16 @@ import { getNum } from '../src/utils.js';
 
 const isEven = (num) => num % 2 === 0;
 
-const getExpectedAnswer = (num) => (isEven(num) ? 'yes' : 'no');
-
-const brainEven = () => {
+const runBrainEven = () => {
   const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
   const getRoundData = () => {
     const num = getNum();
-    const expectedAnswer = getExpectedAnswer(num);
+    const expectedAnswer = isEven(num) ? 'yes' : 'no';
     return [num, expectedAnswer];
   };
 
   runGame(description, getRoundData);
 };
 
-export default brainEven;
+export default runBrainEven;
