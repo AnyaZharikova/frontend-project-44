@@ -15,18 +15,16 @@ const isPrime = (num) => {
   return true;
 };
 
-const getExpectedAnswer = (num) => (isPrime(num) ? 'yes' : 'no');
-
-const brainPrime = () => {
+const runBrainPrime = () => {
   const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
   const getRoundData = () => {
     const num = getNum();
-    const expectedAnswer = getExpectedAnswer(num);
+    const expectedAnswer = isPrime(num) ? 'yes' : 'no';
     return [num, expectedAnswer];
   };
 
   runGame(description, getRoundData);
 };
 
-export default brainPrime;
+export default runBrainPrime;
