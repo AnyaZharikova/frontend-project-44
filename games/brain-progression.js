@@ -1,5 +1,5 @@
 import runGame from '../src/index.js';
-import { getNum } from '../src/utils.js';
+import getNum from '../src/utils.js';
 
 const getProgression = () => {
   const step = getNum(1, 9);

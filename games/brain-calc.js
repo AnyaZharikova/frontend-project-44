@@ -1,5 +1,5 @@
 import runGame from '../src/index.js';
-import { getNum } from '../src/utils.js';
+import getNum from '../src/utils.js';
 
 const getOperator = (operators) => {
   const randomIndex = Math.floor(Math.random() * operators.length);
